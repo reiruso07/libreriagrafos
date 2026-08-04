@@ -9,5 +9,4 @@
     nodo<N>* sigAdyacente;
     nodo(int idd,N datoo)
  };
- 
 #endif
