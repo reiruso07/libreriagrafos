@@ -7,7 +7,7 @@
     N dato;
     nodo<N>* sigVertice;
     nodo<N>* sigAdyacente;
-    nodo(int idd,N datoo)
+    nodo(int idd,N datoo);
  };
  template<typename M>
  class grafo{
@@ -16,7 +16,7 @@
         grafo();
         nodo<M>* buscarvertice(int id);
         void agregarvertice(int id,M dato);
-        void agregarartistas(int origen,int destino);
+        void agregarartistas(int origen,int destino,M dato);
         void imprimirgrafo()const;
         ~grafo();
  };
