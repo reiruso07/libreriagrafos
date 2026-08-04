@@ -50,3 +50,18 @@ void grafo<M>::agregarartistas(int origen,int destino){
     conexion2->sigAdyacente=vDestino->sigAdyacente;
     vDestino->sigAdyacente=conexion2;
 }
+template <typename N>
+void grafo<N>:: imprimirgrafo()const{
+    nodo* vact=nodoP;
+    while(vact!=nullptr){
+        cout<<"Vertice "<<vact->id<<":";
+        nodo* act=vact->sigAdyacente;
+        while (act!=nullptr)
+        {
+            cout<<" -> "<<act->id;
+            act=act->sigAdyacente;
+        }
+        cout<<endl;
+        vact=vact->sigAdyacente;
+    }
+}
