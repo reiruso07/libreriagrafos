@@ -7,6 +7,7 @@
     N dato;
     nodo<N>* sigVertice;
     nodo<N>* sigAdyacente;
+    bool visitado;
     nodo(int idd,N datoo);
  };
  template<typename M>
@@ -18,7 +19,18 @@
         void agregarvertice(int id,M dato);
         void agregarartistas(int origen,int destino,M dato);
         void imprimirgrafo()const;
+        bool existevertice(int id);
+        bool existearista(int origen,int destino);
+        int gradovertice(int id);
+        int numerovertices();
+        void eliminararista(int origen,int destino);
+        void eliminarvertice(int id);
+        void recorridoDFS(int idInicio);
+        void recorridoBFS(int idInicio);
         ~grafo();
+    private:
+        void reiniciarvisitados();
+        void dfsauxiliar(nodo<M>* vertice);
  };
  #include "GRAFOS.CPP"
 #endif
