@@ -1,5 +1,5 @@
 #ifndef GRAFOS_HPP
-#define GRAFOS_HPP
+#define GRAFOS_HPP 
  template<typename N>
  class nodo{
     public:
@@ -20,4 +20,5 @@
         void imprimirgrafo()const;
         ~grafo();
  };
+ #include "GRAFOS.CPP"
 #endif

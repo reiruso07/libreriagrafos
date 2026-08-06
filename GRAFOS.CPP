@@ -37,11 +37,11 @@ void grafo<M>::agregarartistas(int origen,int destino,M dato){
     nodo<M>* vOrigen=buscarvertice(origen);
     nodo<M>* vDestino=buscarvertice(destino);
     if(vOrigen==nullptr){
-        agregarvertice(origen);
+        agregarvertice(origen,dato);
         vOrigen=buscarvertice(destino);
     }
     if(vDestino==nullptr){
-        agregarvertice(destino);
+        agregarvertice(destino,dato);
         vDestino=buscarvertice(destino);
     }
     nodo<M>* conexion1=new nodo(destino,dato);
