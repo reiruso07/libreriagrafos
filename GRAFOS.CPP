@@ -13,7 +13,7 @@ template <typename M>
 grafo<M>::grafo(){
     nodoP=nullptr;
 }
-template <typename M>
+template <typename M> // busca un vertice en el grafo por id y devuelve el puntero al nodo, si no encuentra el vertice da nullptr
 nodo<M>* grafo<M>::buscarvertice(int id) {
     nodo<M>* act=nodoP;
     while(act!=nullptr){
@@ -24,7 +24,7 @@ nodo<M>* grafo<M>::buscarvertice(int id) {
     }
     return nullptr;
 }
-template <typename M>
+template <typename M> // agrega un nuevo vertice al grafo, si no existe no hace nada
 void grafo<M>:: agregarvertice(int id,M dato){
   if(buscarvertice(id)!=nullptr){
     return;
@@ -33,7 +33,7 @@ void grafo<M>:: agregarvertice(int id,M dato){
   nuevovertice->sigVertice=nodoP;
   nodoP=nuevovertice;
 }
-template <typename M>
+template <typename M> // agrega una arista al grafo entre 2 vertices, si uno de los vertices no existe lanza nullptr, si existe pues la agrega a la lista  de ambos vertices, creando un nuevo nodo para cada conexion.
 void grafo<M>::agregarartistas(int origen,int destino,M dato){
     nodo<M>* vOrigen=buscarvertice(origen);
     nodo<M>* vDestino=buscarvertice(destino);
@@ -52,7 +52,7 @@ void grafo<M>::agregarartistas(int origen,int destino,M dato){
     conexion2->sigAdyacente=vDestino->sigAdyacente;
     vDestino->sigAdyacente=conexion2;
 }
-template <typename N>
+template <typename N> // imprime el grafo mostrando vertices y vertices adyacentes, si no hay vertices pues nada no imprime nada
 void grafo<N>:: imprimirgrafo()const{
     nodo<N>* vact=nodoP;
     while(vact!=nullptr){
@@ -68,7 +68,7 @@ void grafo<N>:: imprimirgrafo()const{
     }
 }
 
-template <typename M>
+template <typename M> // verifica si existe un vertice en el grafo, si existe suelta true, sino false
 bool grafo<M>::existevertice(int id){
     return buscarvertice(id)!=nullptr;
 }
@@ -89,7 +89,7 @@ bool grafo<M>::existearista(int origen,int destino){
     return false;
 }
 
-template <typename M>
+template <typename M> // devuelve el grado de un vertice, osea la cantidad de vertices adyecentes que tiene, si no existe el vertice lanza -1
 int grafo<M>::gradovertice(int id){
     nodo<M>* vertice=buscarvertice(id);
     if(vertice==nullptr){
@@ -104,7 +104,7 @@ int grafo<M>::gradovertice(int id){
     return grado;
 }
 
-template <typename M>
+template <typename M> // muestra el numero de vertices en el grafo, si no hay manda 0 y ya
 int grafo<M>::numerovertices(){
     int contador=0;
     nodo<M>* act=nodoP;
@@ -115,7 +115,7 @@ int grafo<M>::numerovertices(){
     return contador;
 }
 
-template <typename M>
+template <typename M> // elimina una arista , si uno de los vertices no existe no hace nada, si existe elimina la arista de la lista de ambos vertices y libera la memoria del nodo de la arista
 void grafo<M>::eliminararista(int origen,int destino){
     nodo<M>* vOrigen=buscarvertice(origen);
     nodo<M>* vDestino=buscarvertice(destino);
